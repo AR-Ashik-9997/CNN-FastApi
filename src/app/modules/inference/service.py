@@ -58,7 +58,7 @@ def run_cnn_inference(file: UploadFile) -> CNNInferenceResponse:
 
     class_names = ["Glioma Tumor", "Meningioma Tumor", "No Tumor", "Pituitary Tumor"]
     predicted_class = int(np.argmax(outputs))
-    confidence = float(outputs[predicted_class])
+    confidence = f"{float(outputs[predicted_class]) * 100:.2f}%"
     class_label = class_names[predicted_class]
     all_probs = [float(p) for p in outputs]
 

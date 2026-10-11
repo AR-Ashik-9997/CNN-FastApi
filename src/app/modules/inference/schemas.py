@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field, ConfigDict
 class CNNInferenceResponse(BaseModel):
     predicted_class: int = Field(..., description="Predicted class index")
     class_label: Optional[str] = Field(default=None, description="Human readable label")
-    confidence: float = Field(..., description="Probability")
+    confidence: str = Field(..., description="Probability")
     # all_probabilities: List[float] = Field(
     #     default=None, description="Softmax probabilities for all classes"
     # )
