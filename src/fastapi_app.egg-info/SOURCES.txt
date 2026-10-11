@@ -1,0 +1,17 @@
+pyproject.toml
+src/app/__init__.py
+src/app/main.py
+src/app/cnn_model/__init__.py
+src/app/cnn_model/simpleCNN.py
+src/app/core/__init__.py
+src/app/core/config.py
+src/app/core/ml_loader.py
+src/app/modules/__init__.py
+src/app/modules/inference/__init__.py
+src/app/modules/inference/router.py
+src/app/modules/inference/schemas.py
+src/app/modules/inference/service.py
+src/fastapi_app.egg-info/PKG-INFO
+src/fastapi_app.egg-info/SOURCES.txt
+src/fastapi_app.egg-info/dependency_links.txt
+src/fastapi_app.egg-info/top_level.txt
