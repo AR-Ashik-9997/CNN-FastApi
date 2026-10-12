@@ -33,6 +33,7 @@ app.include_router(inference_router, prefix=settings.API_V1_STR)
 
 
 @app.get("/")
+@app.head("/")
 def root():
     return {
         "status": "online",
