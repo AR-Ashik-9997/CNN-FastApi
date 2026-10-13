@@ -7,6 +7,7 @@ from PIL import Image, ImageOps
 from fastapi import UploadFile, HTTPException
 from app.core.ml_loader import ModelManager
 from app.modules.inference.schemas import CNNInferenceResponse
+from app.core.binary_filter import verify_with_binary_model
 
 eval_transform = transforms.Compose(
     [
@@ -23,6 +24,11 @@ def image_process(files: List[UploadFile]) -> torch.Tensor:
         for file in files:
             file_bytes = file.file.read()
             image = Image.open(io.BytesIO(file_bytes)).convert("RGB")
+            if not verify_with_binary_model(image):
+                raise HTTPException(
+                    status_code=400,
+                    detail="Invalid image: Please uploaded a valid MRI scan image.",
+                )
             tensor = eval_transform(image)
             tensors.append(tensor)
         batch_tensor = torch.stack(tensors)
