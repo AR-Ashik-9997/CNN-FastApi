@@ -10,7 +10,7 @@ MODELS_DIR = BASE_DIR / "models"
 
 def load_binary_filter():
 
-    model_path = MODELS_DIR / "load_binary_filter_of_brain_mri.pkl"
+    model_path = MODELS_DIR / "load_binary_filter_of_brain_mri_model.pth"
     
     model = models.resnet18(weights=None)
     model.fc = nn.Linear(model.fc.in_features, 2)
